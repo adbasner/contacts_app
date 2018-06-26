@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require ('faker')
 
-contact = Contact.new(data)
-contact.save
+100.times do
+  contact = Contact.new({first_name: Faker::WorldOfWarcraft.hero, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.cell_phone})
+  contact.save
+end

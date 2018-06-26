@@ -48,3 +48,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'unirest'
+# Added at 2018-06-25 22:22:32 -0400 by andrewbasner:
+gem "faker", "~> 1.8"
