@@ -8,12 +8,12 @@ class Api::ContactsController < ApplicationController
 
   def get_all_contacts
     # @all_contacts = Contact.all
-    @all_contacts = []
+    #@all_contacts = []
 
-    all_contacts = Contact.all
-    all_contacts.each do |contact|
-      @all_contacts << {first_name: contact.first_name, last_name: contact.last_name, email: contact.email, phone_number: contact.phone_number}
-    end
+    @all_contacts = Contact.all
+    # all_contacts.each do |contact|
+    #   @all_contacts << {first_name: contact.first_name, last_name: contact.last_name, email: contact.email, phone_number: contact.phone_number}
+    # end
     render "all_contacts_view.json.jbuilder"
   end
 end
