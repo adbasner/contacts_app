@@ -21,15 +21,16 @@ require 'faker'
 # p response.body
 
 # update
+p 'enter a item id to change'
+item_id = gets.chomp
 
-response = Unirest.patch("http://localhost:3000/api/contacts/104")
-  # ,
-  # parameters: {
-  #   first_name: Faker::WorldOfWarcraft.hero,
-  #   last_name: Faker::Name.last_name,
-  #   email: Faker::Internet.email,
-  #   phone_number: Faker::PhoneNumber.cell_phone
-  # })
+response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
+  parameters: {
+    first_name: Faker::WorldOfWarcraft.hero,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.cell_phone
+  })
 
 p response.body
 

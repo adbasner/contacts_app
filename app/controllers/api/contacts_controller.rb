@@ -31,11 +31,12 @@ class Api::ContactsController < ApplicationController
     input_id = params[:id]
     # find contact with that id
     @contact1 = Contact.find_by(id: input_id)
-    #update
-    @contact1.first_name = 'dude'
-    @contact1.last_name = 'dudududude'
-    @contact1.email = 'dude.com'
-    @contact1.phone_number = '1111111111'
+    # update
+    # = input data or original
+    @contact1.first_name = params[:first_name] || @contact1.first_name
+    @contact1.last_name = params[:last_name] || @contact1.last_name
+    @contact1.email = params[:email] || @contact1.email
+    @contact1.phone_number = params[:phone_number] || @contact1.phone_number
     @contact1.save
     render 'show.json.jbuilder'
   end
