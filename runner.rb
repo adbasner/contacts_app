@@ -12,10 +12,10 @@ require 'faker'
 
 # response = Unirest.post("http://localhost:3000/api/contacts/",
 #   parameters: {
-#     first_name: Faker::WorldOfWarcraft.hero,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     phone_number: Faker::PhoneNumber.cell_phone
+#     input_first_name: Faker::WorldOfWarcraft.hero,
+#     input_last_name: Faker::Name.last_name,
+#     input_email: Faker::Internet.email,
+#     input_phone_number: Faker::PhoneNumber.cell_phone
 #   })
 
 # p response.body
@@ -27,16 +27,15 @@ require 'faker'
 
 # response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
 #   parameters: {
-#     first_name: Faker::WorldOfWarcraft.hero,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     phone_number: Faker::PhoneNumber.cell_phone
+#     input_first_name: Faker::WorldOfWarcraft.hero,
+#     input_last_name: Faker::Name.last_name,
+#     input_email: Faker::Internet.email,
+#     input_phone_number: Faker::PhoneNumber.cell_phone
 #   })
 
 # p response.body
 
 # delete
-# delete '/contacts/:id' => 'contacts#destroy'
 
 p 'enter a item id to delete'
 item_id = gets.chomp

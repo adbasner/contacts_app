@@ -17,10 +17,10 @@ class Api::ContactsController < ApplicationController
   def create
     #
     @contact1 = Contact.new(
-      first_name: params[:first_name], # input_first_name
-      last_name: params[:last_name], # input_last_name
-      email: params[:email],# input_email
-      phone_number: params[:phone_number]# input_phone_number
+      first_name: params[:input_first_name], # input_first_name
+      last_name: params[:input_last_name], # input_last_name
+      email: params[:input_email],# input_email
+      phone_number: params[:input_phone_number]# input_phone_number
       )
     @contact1.save
     render 'show.json.jbuilder'
@@ -33,10 +33,10 @@ class Api::ContactsController < ApplicationController
     @contact1 = Contact.find_by(id: contact_id)
     # update
     # = input data or original
-    @contact1.first_name = params[:first_name] || @contact1.first_name
-    @contact1.last_name = params[:last_name] || @contact1.last_name
-    @contact1.email = params[:email] || @contact1.email
-    @contact1.phone_number = params[:phone_number] || @contact1.phone_number
+    @contact1.first_name = params[:input_first_name] || @contact1.first_name
+    @contact1.last_name = params[:input_last_name] || @contact1.last_name
+    @contact1.email = params[:input_email] || @contact1.email
+    @contact1.phone_number = params[:input_phone_number] || @contact1.phone_number
     @contact1.save
     render 'show.json.jbuilder'
   end
@@ -47,22 +47,9 @@ class Api::ContactsController < ApplicationController
     # find contact with that id
     @contact1 = Contact.find_by(id: contact_id)
     # now delete it
-    @contact1.delete
+    @contact1.destroy
     # render a success message
     render json: {message: "Thing deleted in destroy method"}
   end
 
 end
-
-# index
-    # get '/contacts/' => 'contacts#index'
-    # # show
-    # get '/contacts/:id' => 'contacts#show'
-    # # create
-    # post '/contacts/' => 'contacts#create'
-    # # update
-    # patch '/contacts/:id' => 'contacts#update'
-    # # destroy
-    # delete '/contacts/:id' => 'contacts#destroy'
-
-# Bonus: Create an api route to display the data of all your contacts. NOTE: You haven’t learned how to do this yet so you’ll need to look it up!
