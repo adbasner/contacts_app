@@ -7,9 +7,9 @@ class Api::ContactsController < ApplicationController
 
   def show
     # get id from params
-    input_id = params[:id]
+    contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: input_id)
+    @contact1 = Contact.find_by(id: contact_id)
     # show that contact
     render 'show.json.jbuilder'
   end
@@ -28,9 +28,9 @@ class Api::ContactsController < ApplicationController
 
   def update
     # get id from params
-    input_id = params[:id]
+    contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: input_id)
+    @contact1 = Contact.find_by(id: contact_id)
     # update
     # = input data or original
     @contact1.first_name = params[:first_name] || @contact1.first_name
@@ -43,9 +43,13 @@ class Api::ContactsController < ApplicationController
 
   def destroy
     # get id from params
-    input_id = params[:id]
+    contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: input_id)
+    @contact1 = Contact.find_by(id: contact_id)
+    # now delete it
+    @contact1.delete
+    # render a success message
+    render json: {message: "Thing deleted in destroy method"}
   end
 
 end

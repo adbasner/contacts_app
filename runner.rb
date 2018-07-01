@@ -21,16 +21,27 @@ require 'faker'
 # p response.body
 
 # update
-p 'enter a item id to change'
+
+# p 'enter a item id to change'
+# item_id = gets.chomp
+
+# response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
+#   parameters: {
+#     first_name: Faker::WorldOfWarcraft.hero,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     phone_number: Faker::PhoneNumber.cell_phone
+#   })
+
+# p response.body
+
+# delete
+# delete '/contacts/:id' => 'contacts#destroy'
+
+p 'enter a item id to delete'
 item_id = gets.chomp
 
-response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
-  parameters: {
-    first_name: Faker::WorldOfWarcraft.hero,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone
-  })
+response = Unirest.delete("http://localhost:3000/api/contacts/#{item_id}")
+p 'Thing deleted here in runner'
 
 p response.body
-
