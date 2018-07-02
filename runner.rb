@@ -22,25 +22,31 @@ require 'faker'
 
 # update
 
-# p 'enter a item id to change'
-# item_id = gets.chomp
+p 'enter a item id to change'
+item_id = gets.chomp
+p 'Enter a new first name or leave blank'
+first_name = gets.chomp
+# p first_name == ""
+if first_name == ""
+  first_name = !first_name
+end
 
-# response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
-#   parameters: {
-#     input_first_name: Faker::WorldOfWarcraft.hero,
-#     input_last_name: Faker::Name.last_name,
-#     input_email: Faker::Internet.email,
-#     input_phone_number: Faker::PhoneNumber.cell_phone
-#   })
+response = Unirest.patch("http://localhost:3000/api/contacts/#{item_id}",
+  parameters: {
+    input_first_name: first_name,
+    input_last_name: Faker::Name.last_name,
+    input_email: Faker::Internet.email,
+    input_phone_number: Faker::PhoneNumber.cell_phone
+  })
 
-# p response.body
+p response.body
 
 # delete
 
-p 'enter a item id to delete'
-item_id = gets.chomp
+# p 'enter a item id to delete'
+# item_id = gets.chomp
 
-response = Unirest.delete("http://localhost:3000/api/contacts/#{item_id}")
-p 'Thing deleted here in runner'
+# response = Unirest.delete("http://localhost:3000/api/contacts/#{item_id}")
+# p 'Thing deleted here in runner'
 
-p response.body
+# p response.body
