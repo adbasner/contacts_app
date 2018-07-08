@@ -7,5 +7,10 @@ json.array! @contacts.each do |contact|
   json.phone_number contact.phone_number
   json.created_at contact.created_at
   json.updated_at contact.updated_at
+
+  json.formatted do 
+    json.updated_at contact.month_day_year_updated
+    json.full_name contact.full_name
+  end
 end
 
