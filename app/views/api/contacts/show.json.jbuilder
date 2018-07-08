@@ -9,4 +9,5 @@ json.updated_at @contact1.updated_at
 json.formatted do 
   json.updated_at @contact1.month_day_year_updated
   json.full_name @contact1.full_name
+  json.japanese_number @contact1.japanese_number
 end

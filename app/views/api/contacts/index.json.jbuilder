@@ -11,6 +11,7 @@ json.array! @contacts.each do |contact|
   json.formatted do 
     json.updated_at contact.month_day_year_updated
     json.full_name contact.full_name
+    json.japanese_number contact.japanese_number
   end
 end
 
