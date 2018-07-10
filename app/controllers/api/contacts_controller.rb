@@ -9,21 +9,22 @@ class Api::ContactsController < ApplicationController
     # get id from params
     contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: contact_id)
+    @contact = Contact.find_by(id: contact_id)
     # show that contact
     render 'show.json.jbuilder'
   end
 
   def create
     #
-    @contact1 = Contact.new(
-      first_name: params[:input_first_name], # input_first_name
+    @contact = Contact.new(
+      first_name: params[:input_first_name],
       middle_name: params[:input_middle_name],
-      last_name: params[:input_last_name], # input_last_name
-      email: params[:input_email],# input_email
-      phone_number: params[:input_phone_number]# input_phone_number
+      last_name: params[:input_last_name],
+      bio: params[:input_bio],
+      email: params[:input_email],
+      phone_number: params[:input_phone_number]
       )
-    @contact1.save
+    @contact.save
     render 'show.json.jbuilder'
   end
 
@@ -31,15 +32,16 @@ class Api::ContactsController < ApplicationController
     # get id from params
     contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: contact_id)
+    @contact = Contact.find_by(id: contact_id)
     # update
     # = input data or original
-    @contact1.first_name = params[:input_first_name] || @contact1.first_name
-    @contact1.middle_name = params[:input_middle_name] || @contact1.middle_name
-    @contact1.last_name = params[:input_last_name] || @contact1.last_name
-    @contact1.email = params[:input_email] || @contact1.email
-    @contact1.phone_number = params[:input_phone_number] || @contact1.phone_number
-    @contact1.save
+    @contact.first_name = params[:input_first_name] || @contact.first_name
+    @contact.middle_name = params[:input_middle_name] || @contact.middle_name
+    @contact.last_name = params[:input_last_name] || @contact.last_name
+    @contact.email = params[:input_email] || @contact.email
+    @contact.bio = params[:input_bio] || @contact.bio
+    @contact.phone_number = params[:input_phone_number] || @contact.phone_number
+    @contact.save
     render 'show.json.jbuilder'
   end
 
@@ -47,9 +49,9 @@ class Api::ContactsController < ApplicationController
     # get id from params
     contact_id = params[:id]
     # find contact with that id
-    @contact1 = Contact.find_by(id: contact_id)
+    @contact = Contact.find_by(id: contact_id)
     # now delete it
-    @contact1.destroy
+    @contact.destroy
     # render a success message
     render json: {message: "Thing deleted in destroy method"}
   end
