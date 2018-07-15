@@ -12,5 +12,11 @@ Rails.application.routes.draw do
     patch '/contacts/:id' => 'contacts#update'
     # destroy
     delete '/contacts/:id' => 'contacts#destroy'
+
+
+    # user stuff
+    post '/users' => 'users#create'
+    post "/sessions" => "sessions#create"
+
   end
 end

@@ -6,7 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do
-  contact = Contact.new({first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.cell_phone})
+# 100.times do
+#   contact = Contact.new({first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.cell_phone})
+#   contact.save
+# end
+
+# add bio and contact
+
+contacts = Contact.all
+
+contacts.each do |contact|
+  contact.user_id = rand(1..3)
+  contact.bio = "Random bio info"
   contact.save
 end

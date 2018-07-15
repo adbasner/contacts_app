@@ -1,8 +1,21 @@
 class Api::ContactsController < ApplicationController 
 
   def index
-    @contacts = Contact.all
-    render 'index.json.jbuilder'
+    # @contacts = Contact.all
+    # @user_contacts = []
+    # @contacts.each do |contact|
+    #   if contact.user_id == current_user.id
+    #     @user_contacts << contact
+    #   end
+    # end
+    if current_user
+      @contacts = current_user.contacts
+      render 'index.json.jbuilder'
+    else
+      render json: []
+    end
+    # @contacts = @user_contacts
+    # render 'index.json.jbuilder'
   end
 
   def show
@@ -17,6 +30,7 @@ class Api::ContactsController < ApplicationController
   def create
     #
     @contact = Contact.new(
+      user_id: current_user.id,
       first_name: params[:input_first_name],
       middle_name: params[:input_middle_name],
       last_name: params[:input_last_name],
