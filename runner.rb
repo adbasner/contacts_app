@@ -50,3 +50,10 @@ require 'faker'
 # p 'Thing deleted here in runner'
 
 # p response.body
+# contact_ids = []
+# contacts = Unirest.get("http://localhost:3000/api/contacts")
+# response = contacts.body
+# response.each do |contact|
+#   contact_ids << contact['id']
+# end
+# p contact_ids

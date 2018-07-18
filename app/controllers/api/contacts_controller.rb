@@ -12,7 +12,10 @@ class Api::ContactsController < ApplicationController
       @contacts = current_user.contacts
       render 'index.json.jbuilder'
     else
-      render json: []
+      @contacts = Contact.all
+      render 'index.json.jbuilder'
+      
+      # render json: []
     end
     # @contacts = @user_contacts
     # render 'index.json.jbuilder'
